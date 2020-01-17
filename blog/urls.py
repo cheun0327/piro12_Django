@@ -7,4 +7,5 @@ app_name='blog'
 
 urlpatterns = [
     path('archives/<yyyy:year>/', views.archive_year),
+    path('', views.item_lsit)
 ]

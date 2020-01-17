@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-class item(models.Model):
+class Item(models.Model):
     name=models.CharField(max_length=100)
     desc=models.TextField(blank=True)   ## 둘다 문자열 저장
     ## 파이썬은 문자열은 하나인데 DB는 문자열에도 여러 종류있다.
