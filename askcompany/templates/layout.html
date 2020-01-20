@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +7,8 @@
     <style>
         body{background-color: lightblue}
     </style>
+    <link rel="stylesheet" href="{% static "main.css" %}" />
+    {%block extra_head%}{% endblock %}
 </head>
 <body>
 <h1>Ask Company</h1>
@@ -13,5 +16,9 @@
 {%endblock%}
 <hr/>
 &copy:2019. ChaeEun Kim
+
+{% block extra_body %}
+<script src="{% static "main.js" %}"></script>
+{% endblock %}
 </body>
 </html>
