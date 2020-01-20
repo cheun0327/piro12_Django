@@ -59,8 +59,11 @@ ROOT_URLCONF = 'askcompany.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'askcompany', 'templates'),
+        ],
         'APP_DIRS': True,
+        ## 얘를 false로 하면 앱들의 templates는 사용하지 않는다는 의미
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
