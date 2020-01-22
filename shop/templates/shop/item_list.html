@@ -1,17 +1,25 @@
-{% edtends "shop/layout.html"%}
-{%blcock content%}
-<form action="" method="GET">
-    <input type="text" name="=q" value="{{q}}"/>
-    <input type="submit" value="search"/>
-</form>
-<ul>
-    {% for items in item_list %}
-        <li>
-            <a href="/shop/{{item.pk}}/"
-            {{item.name}}
-            {{item.price}}
-            {{item.desc}}
-        </li>
-    {%endfor%}
-</ul>
+{% extends "shop/layout.html"%}
+{% load humanize %}
+{% block content %}
+<body>
+    <form action="" method="GET">
+        <input type="text" name="=q" value="{{q}}"/>
+        <input type="submit" value="search"/>
+    </form>
+    <ul>
+        {% for items in item_list %}
+            <li>
+                <a href="{{ item.get_absolute_url }}">
+                    {{item.name}}
+                </a>
+                {{item.price}}
+                {% if item.desc %}}
+                {{item.desc}}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <hr/>
+    <a href="{% url "shop:item_new" %}">NEW ITEM</a>
+</body>
 {% endblock %}

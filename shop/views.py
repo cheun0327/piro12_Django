@@ -20,4 +20,10 @@ def item_list(request):
 
 def item_detail(request, pk):
     item=get_object_or_404(Item, pk=pk)
-    return render(request, 'shop/item_deatil.html')
+    return render(request, 'shop/item_deatil.html', {'item':item,})
+
+def item_new(request):
+    print('GET :', request.GET)
+    print('POST :', request.POST)
+    print('FILES :', request.FILES)
+    return render(request, 'shop/item_form.html')
